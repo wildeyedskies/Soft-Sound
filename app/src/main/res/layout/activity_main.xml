@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2">
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/play_rain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/rain" />
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/rain_volume"
+        android:max="19"
+        android:progress="19"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="33dp"
+        android:layout_gravity="fill_horizontal" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/play_storm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/storm"/>
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/storm_volume"
+        android:max="19"
+        android:progress="19"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="fill_horizontal"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/play_water"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/water" />
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/water_volume"
+        android:max="19"
+        android:progress="19"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="fill_horizontal"/>
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/play_fire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/fire" />
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/fire_volume"
+        android:max="19"
+        android:progress="19"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="fill_horizontal"/>
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/play_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/wind" />
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/wind_volume"
+        android:max="19"
+        android:progress="19"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="fill_horizontal"/>
+
+</GridLayout>
