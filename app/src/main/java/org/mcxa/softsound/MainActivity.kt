@@ -11,6 +11,7 @@ import android.content.Context
 import android.content.ServiceConnection
 import android.os.Build
 import android.os.IBinder
+import android.view.View
 import android.widget.SeekBar
 
 
@@ -23,8 +24,15 @@ class MainActivity : AppCompatActivity() {
 
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
             playerService = (service as PlayerService.PlayerBinder).getService()
+            // update the FAB
+            fab.visibility = if (playerService?.isPlaying() == true) View.VISIBLE else View.INVISIBLE
+            playerService?.playerChangeListener = playerChangeListener
         }
 
+    }
+
+    private val playerChangeListener = {
+        fab.visibility = if (playerService?.isPlaying() == true) View.VISIBLE else View.INVISIBLE
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +52,11 @@ class MainActivity : AppCompatActivity() {
         storm_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.THUNDER))
         fire_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.FIRE))
         wind_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.WIND))
+
+        fab.setOnClickListener {
+            playerService?.stopPlaying()
+            fab.visibility = View.INVISIBLE
+        }
     }
 
     inner class VolumeChangeListener(val sound: PlayerService.Sound): SeekBar.OnSeekBarChangeListener {

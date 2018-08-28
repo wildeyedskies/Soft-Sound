@@ -22,6 +22,9 @@ class PlayerService : Service() {
     val NOTIFICATION_ID = 132
     val TAG = "Player"
 
+    // called when sound is started or stopped
+    var playerChangeListener: (()->Unit)? = null
+
     inner class PlayerBinder: Binder() {
         fun getService(): PlayerService {
             return this@PlayerService
@@ -39,7 +42,7 @@ class PlayerService : Service() {
 
     enum class Sound(val file: String) {
         RAIN("rain.ogg"),
-        THUNDER("thunderstorm.ogg"),
+        THUNDER("thunder.ogg"),
         FIRE("fire.ogg"),
         WATER("water.ogg"),
         WIND("wind.ogg")
@@ -69,6 +72,7 @@ class PlayerService : Service() {
 
     override fun onUnbind(intent: Intent?): Boolean {
         // don't continue if we're not playing any sound and the main activity exits
+        playerChangeListener = null
         if(!isPlaying()) {
             stopSelf()
             Log.d(TAG, "stopping service")
@@ -107,6 +111,10 @@ class PlayerService : Service() {
         }
     }
 
+    fun stopPlaying() {
+        exoPlayers.values.forEach {it.playWhenReady = false }
+    }
+
     fun isPlaying(): Boolean {
         var playing = false
         exoPlayers.values.forEach { if (it.playWhenReady) playing = true }
@@ -117,11 +125,9 @@ class PlayerService : Service() {
         exoPlayers[sound]?.volume = volume
     }
 
-    fun getVolume(sound: Sound): Float {
-        return exoPlayers[sound]?.volume ?: 0f
-    }
-
     fun toggleSound(sound: Sound) {
         exoPlayers[sound]?.playWhenReady = !(exoPlayers[sound]?.playWhenReady ?: false)
+        // call the change listener
+        playerChangeListener?.invoke()
     }
 }
