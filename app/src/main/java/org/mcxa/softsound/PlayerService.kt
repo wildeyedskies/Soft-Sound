@@ -45,7 +45,8 @@ class PlayerService : Service() {
         THUNDER("thunder.ogg"),
         FIRE("fire.ogg"),
         WATER("water.ogg"),
-        WIND("wind.ogg")
+        WIND("wind.ogg"),
+        NIGHT("night.ogg"),
     }
 
     private val exoPlayers = mutableMapOf<Sound, SimpleExoPlayer>()
