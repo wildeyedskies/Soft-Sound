@@ -46,12 +46,14 @@ class MainActivity : AppCompatActivity() {
         play_storm.setOnClickListener { playerService?.toggleSound(PlayerService.Sound.THUNDER) }
         play_fire.setOnClickListener { playerService?.toggleSound(PlayerService.Sound.FIRE) }
         play_wind.setOnClickListener { playerService?.toggleSound(PlayerService.Sound.WIND) }
+        play_night.setOnClickListener { playerService?.toggleSound(PlayerService.Sound.NIGHT) }
 
         rain_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.RAIN))
         water_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.WATER))
         storm_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.THUNDER))
         fire_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.FIRE))
         wind_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.WIND))
+        night_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.NIGHT))
 
         fab.setOnClickListener {
             playerService?.stopPlaying()
