@@ -11,6 +11,8 @@ import android.content.Context
 import android.content.ServiceConnection
 import android.os.Build
 import android.os.IBinder
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.SeekBar
 
 
@@ -40,12 +42,34 @@ class MainActivity : AppCompatActivity() {
 
         createNotificationChannel()
 
-        play_rain.setOnClickListener { playerService?.toggleSound(PlayerService.Sound.RAIN) }
-        play_water.setOnClickListener { playerService?.toggleSound(PlayerService.Sound.WATER) }
-        play_storm.setOnClickListener { playerService?.toggleSound(PlayerService.Sound.THUNDER) }
-        play_fire.setOnClickListener { playerService?.toggleSound(PlayerService.Sound.FIRE) }
-        play_wind.setOnClickListener { playerService?.toggleSound(PlayerService.Sound.WIND) }
-        play_night.setOnClickListener { playerService?.toggleSound(PlayerService.Sound.NIGHT) }
+        play_rain.setOnClickListener {
+            playerService?.toggleSound(PlayerService.Sound.RAIN)
+            toggleProgressBar(rain_volume)
+        }
+        play_water.setOnClickListener {
+            playerService?.toggleSound(PlayerService.Sound.WATER)
+            toggleProgressBar(water_volume)
+        }
+        play_storm.setOnClickListener {
+            playerService?.toggleSound(PlayerService.Sound.THUNDER)
+            toggleProgressBar(storm_volume)
+        }
+        play_fire.setOnClickListener {
+            playerService?.toggleSound(PlayerService.Sound.FIRE)
+            toggleProgressBar(fire_volume)
+        }
+        play_wind.setOnClickListener {
+            playerService?.toggleSound(PlayerService.Sound.WIND)
+            toggleProgressBar(wind_volume)
+        }
+        play_night.setOnClickListener {
+            playerService?.toggleSound(PlayerService.Sound.NIGHT)
+            toggleProgressBar(night_volume)
+        }
+        play_cat.setOnClickListener {
+            playerService?.toggleSound(PlayerService.Sound.PURR)
+            toggleProgressBar(cat_volume)
+        }
 
         rain_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.RAIN))
         water_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.WATER))
@@ -53,11 +77,20 @@ class MainActivity : AppCompatActivity() {
         fire_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.FIRE))
         wind_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.WIND))
         night_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.NIGHT))
+        cat_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.PURR))
 
         fab.setOnClickListener {
             playerService?.stopPlaying()
             fab.hide()
+            // hide all volume bars
+            arrayOf(rain_volume,water_volume,storm_volume,fire_volume,wind_volume,night_volume,cat_volume).forEach {
+                bar -> bar.visibility = View.INVISIBLE
+            }
         }
+    }
+
+    private fun toggleProgressBar(progressBar: ProgressBar) {
+        progressBar.visibility = if (progressBar.visibility == View.VISIBLE) View.INVISIBLE else View.VISIBLE
     }
 
     inner class VolumeChangeListener(val sound: PlayerService.Sound): SeekBar.OnSeekBarChangeListener {
