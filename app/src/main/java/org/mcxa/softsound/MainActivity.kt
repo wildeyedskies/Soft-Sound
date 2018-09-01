@@ -11,7 +11,6 @@ import android.content.Context
 import android.content.ServiceConnection
 import android.os.Build
 import android.os.IBinder
-import android.view.View
 import android.widget.SeekBar
 
 
@@ -25,14 +24,14 @@ class MainActivity : AppCompatActivity() {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
             playerService = (service as PlayerService.PlayerBinder).getService()
             // update the FAB
-            fab.visibility = if (playerService?.isPlaying() == true) View.VISIBLE else View.INVISIBLE
+            if (playerService?.isPlaying() == true) fab.show() else fab.hide()
             playerService?.playerChangeListener = playerChangeListener
         }
 
     }
 
     private val playerChangeListener = {
-        fab.visibility = if (playerService?.isPlaying() == true) View.VISIBLE else View.INVISIBLE
+        if (playerService?.isPlaying() == true) fab.show() else fab.hide()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener {
             playerService?.stopPlaying()
-            fab.visibility = View.INVISIBLE
+            fab.hide()
         }
     }
 

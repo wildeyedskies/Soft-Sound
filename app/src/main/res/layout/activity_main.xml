@@ -13,6 +13,10 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/play_rain"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:drawableLeft="@drawable/ic_rain"
+        android:drawableStart="@drawable/ic_rain"
+        android:padding="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -35,6 +39,11 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/play_storm"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:drawableLeft="@drawable/ic_storm"
+        android:drawableStart="@drawable/ic_storm"
+        android:padding="4dp"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -57,6 +66,10 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/play_water"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:drawableLeft="@drawable/ic_water"
+        android:drawableStart="@drawable/ic_water"
+        android:padding="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -80,6 +93,11 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/play_fire"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:drawableLeft="@drawable/ic_fire"
+        android:drawableStart="@drawable/ic_fire"
+        android:padding="4dp"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -103,6 +121,10 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/play_wind"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:drawableLeft="@drawable/ic_wind"
+        android:drawableStart="@drawable/ic_wind"
+        android:padding="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -125,6 +147,10 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/play_night"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:drawableLeft="@drawable/ic_night"
+        android:drawableStart="@drawable/ic_night"
+        android:padding="4dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
