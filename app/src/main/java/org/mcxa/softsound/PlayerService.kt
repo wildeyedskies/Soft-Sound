@@ -1,9 +1,13 @@
 package org.mcxa.softsound
 
+import android.app.PendingIntent
+import android.app.Service
 import android.content.Intent
 import android.net.Uri
+import android.os.Binder
 import android.os.Build.VERSION.SDK_INT
 import android.os.IBinder
+import android.support.v4.app.NotificationCompat
 import android.util.Log
 import com.google.android.exoplayer2.DefaultRenderersFactory
 import com.google.android.exoplayer2.ExoPlayerFactory
@@ -13,25 +17,21 @@ import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
-import android.app.PendingIntent
-import android.app.Service
-import android.os.Binder
-import android.support.v4.app.NotificationCompat
 
 class PlayerService : Service() {
-    val NOTIFICATION_ID = 132
-    val TAG = "Player"
+    private val notificationID = 132
+    private val tag = "Player"
 
     // called when sound is started or stopped
-    var playerChangeListener: (()->Unit)? = null
+    var playerChangeListener: (() -> Unit)? = null
 
-    inner class PlayerBinder: Binder() {
+    inner class PlayerBinder : Binder() {
         fun getService(): PlayerService {
             return this@PlayerService
         }
     }
 
-    val playerBinder = PlayerBinder()
+    private val playerBinder = PlayerBinder()
 
     override fun onCreate() {
         // load each player into the map
@@ -42,9 +42,9 @@ class PlayerService : Service() {
 
     enum class Sound(val file: String) {
         RAIN("rain.ogg"),
-        THUNDER("thunder.ogg"),
-        FIRE("fire.ogg"),
+        STORM("storm.ogg"),
         WATER("water.ogg"),
+        FIRE("fire.ogg"),
         WIND("wind.ogg"),
         NIGHT("night.ogg"),
         PURR("purr.ogg")
@@ -61,10 +61,11 @@ class PlayerService : Service() {
         // load the media source
         val dataSource = DefaultDataSourceFactory(this,
                 Util.getUserAgent(this, this.getString(R.string.app_name)))
-        val mediaSource = ExtractorMediaSource.Factory(dataSource).createMediaSource(Uri.parse("asset:///${soundFile}"))
+        val mediaSource = ExtractorMediaSource.Factory(dataSource)
+                .createMediaSource(Uri.parse("asset:///$soundFile"))
 
         // load the media
-        Log.d("MAIN", "loading ${soundFile}")
+        Log.d("MAIN", "loading $soundFile")
         exoPlayer.prepare(mediaSource)
         // loop indefinitely
         exoPlayer.repeatMode = Player.REPEAT_MODE_ALL
@@ -75,9 +76,9 @@ class PlayerService : Service() {
     override fun onUnbind(intent: Intent?): Boolean {
         // don't continue if we're not playing any sound and the main activity exits
         playerChangeListener = null
-        if(!isPlaying()) {
+        if (!isPlaying()) {
             stopSelf()
-            Log.d(TAG, "stopping service")
+            Log.d(tag, "stopping service")
         }
         return super.onUnbind(intent)
     }
@@ -100,21 +101,21 @@ class PlayerService : Service() {
                     .setContentIntent(pendingIntent)
                     .build()
 
-            Log.d(TAG, "starting foreground service")
-            startForeground(NOTIFICATION_ID, notification)
+            Log.d(tag, "starting foreground service...")
+            startForeground(notificationID, notification)
         }
     }
 
     fun stopForeground() {
         // we don't need to be foreground anymore
         if (SDK_INT >= 24) {
-            Log.d(TAG, "stopping foreground service")
+            Log.d(tag, "stopping foreground service...")
             stopForeground(STOP_FOREGROUND_REMOVE)
         }
     }
 
     fun stopPlaying() {
-        exoPlayers.values.forEach {it.playWhenReady = false }
+        exoPlayers.values.forEach { it.playWhenReady = false }
     }
 
     fun isPlaying(): Boolean {
