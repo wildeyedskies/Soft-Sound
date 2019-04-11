@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Soft Sound</string>
-    <string name="notification_message">Soft Sound is running</string>
+    <string name="notification_message">Soft Sound is running…</string>
 
     <string name="rain">Rain</string>
     <string name="storm">Storm</string>

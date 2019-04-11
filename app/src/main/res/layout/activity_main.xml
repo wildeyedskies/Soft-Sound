@@ -1,219 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    android:id="@+id/main_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:columnCount="2">
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2">
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/play_rain"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:drawableLeft="@drawable/ic_rain"
-        android:drawableStart="@drawable/ic_rain"
-        android:padding="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/rain" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/play_rain"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/ic_rain"
+            android:drawableLeft="@drawable/ic_rain"
+            android:padding="4dp"
+            android:text="@string/rain" />
 
-    <android.support.v7.widget.AppCompatSeekBar
-        android:id="@+id/rain_volume"
-        android:max="19"
-        android:progress="19"
-        android:visibility="invisible"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="33dp"
-        android:layout_gravity="fill_horizontal" />
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/rain_volume"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:max="19"
+            android:progress="19"
+            android:visibility="invisible" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/play_storm"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:drawableLeft="@drawable/ic_storm"
-        android:drawableStart="@drawable/ic_storm"
-        android:padding="4dp"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/play_storm"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_storm"
+            android:drawableLeft="@drawable/ic_storm"
+            android:padding="4dp"
+            android:text="@string/storm" />
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/storm"/>
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/storm_volume"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:max="19"
+            android:progress="19"
+            android:visibility="invisible" />
 
-    <android.support.v7.widget.AppCompatSeekBar
-        android:id="@+id/storm_volume"
-        android:max="19"
-        android:progress="19"
-        android:visibility="invisible"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_gravity="fill_horizontal"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/play_water"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_water"
+            android:drawableLeft="@drawable/ic_water"
+            android:padding="4dp"
+            android:text="@string/water" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/play_water"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:drawableLeft="@drawable/ic_water"
-        android:drawableStart="@drawable/ic_water"
-        android:padding="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/water" />
-
-    <android.support.v7.widget.AppCompatSeekBar
-        android:id="@+id/water_volume"
-        android:max="19"
-        android:progress="19"
-        android:visibility="invisible"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_gravity="fill_horizontal"/>
-
-
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/play_fire"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:drawableLeft="@drawable/ic_fire"
-        android:drawableStart="@drawable/ic_fire"
-        android:padding="4dp"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/fire" />
-
-    <android.support.v7.widget.AppCompatSeekBar
-        android:id="@+id/fire_volume"
-        android:max="19"
-        android:progress="19"
-        android:visibility="invisible"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_gravity="fill_horizontal"/>
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/water_volume"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:max="19"
+            android:progress="19"
+            android:visibility="invisible" />
 
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/play_wind"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:drawableLeft="@drawable/ic_wind"
-        android:drawableStart="@drawable/ic_wind"
-        android:padding="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/wind" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/play_fire"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_fire"
+            android:drawableLeft="@drawable/ic_fire"
+            android:padding="4dp"
+            android:text="@string/fire" />
 
-    <android.support.v7.widget.AppCompatSeekBar
-        android:id="@+id/wind_volume"
-        android:max="19"
-        android:progress="19"
-        android:visibility="invisible"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_gravity="fill_horizontal"/>
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/fire_volume"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:max="19"
+            android:progress="19"
+            android:visibility="invisible" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/play_night"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:drawableLeft="@drawable/ic_night"
-        android:drawableStart="@drawable/ic_night"
-        android:padding="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/night" />
 
-    <android.support.v7.widget.AppCompatSeekBar
-        android:id="@+id/night_volume"
-        android:max="19"
-        android:progress="19"
-        android:visibility="invisible"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_gravity="fill_horizontal"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/play_wind"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_wind"
+            android:drawableLeft="@drawable/ic_wind"
+            android:padding="4dp"
+            android:text="@string/wind" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/play_cat"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:drawableLeft="@drawable/ic_cat"
-        android:drawableStart="@drawable/ic_cat"
-        android:padding="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/cat" />
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/wind_volume"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:max="19"
+            android:progress="19"
+            android:visibility="invisible" />
 
-    <android.support.v7.widget.AppCompatSeekBar
-        android:id="@+id/cat_volume"
-        android:max="19"
-        android:progress="19"
-        android:visibility="invisible"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="25dp"
-        android:layout_gravity="fill_horizontal"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/play_night"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_night"
+            android:drawableLeft="@drawable/ic_night"
+            android:padding="4dp"
+            android:text="@string/night" />
 
-</GridLayout>
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/night_volume"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:max="19"
+            android:progress="19"
+            android:visibility="invisible" />
 
-    <android.support.design.widget.FloatingActionButton
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/play_cat"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_cat"
+            android:drawableLeft="@drawable/ic_cat"
+            android:padding="4dp"
+            android:text="@string/cat" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/cat_volume"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:max="19"
+            android:progress="19"
+            android:visibility="invisible" />
+
+    </GridLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
         android:src="@drawable/ic_stop"
+        android:visibility="invisible"
         app:layout_anchorGravity="bottom|right|end" />
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

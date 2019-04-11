@@ -1,26 +1,26 @@
 package org.mcxa.softsound
 
-import android.content.Intent
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
-import android.app.NotificationManager
 import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Build
+import android.os.Bundle
 import android.os.IBinder
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
     // handle binding to the player service
     private var playerService: PlayerService? = null
 
-    private val serviceConnection = object: ServiceConnection {
+    private val serviceConnection = object : ServiceConnection {
         override fun onServiceDisconnected(name: ComponentName?) {}
 
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
@@ -46,13 +46,13 @@ class MainActivity : AppCompatActivity() {
             playerService?.toggleSound(PlayerService.Sound.RAIN)
             toggleProgressBar(rain_volume)
         }
+        play_storm.setOnClickListener {
+            playerService?.toggleSound(PlayerService.Sound.STORM)
+            toggleProgressBar(storm_volume)
+        }
         play_water.setOnClickListener {
             playerService?.toggleSound(PlayerService.Sound.WATER)
             toggleProgressBar(water_volume)
-        }
-        play_storm.setOnClickListener {
-            playerService?.toggleSound(PlayerService.Sound.THUNDER)
-            toggleProgressBar(storm_volume)
         }
         play_fire.setOnClickListener {
             playerService?.toggleSound(PlayerService.Sound.FIRE)
@@ -72,8 +72,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         rain_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.RAIN))
+        storm_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.STORM))
         water_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.WATER))
-        storm_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.THUNDER))
         fire_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.FIRE))
         wind_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.WIND))
         night_volume.setOnSeekBarChangeListener(VolumeChangeListener(PlayerService.Sound.NIGHT))
@@ -83,8 +83,8 @@ class MainActivity : AppCompatActivity() {
             playerService?.stopPlaying()
             fab.hide()
             // hide all volume bars
-            arrayOf(rain_volume,water_volume,storm_volume,fire_volume,wind_volume,night_volume,cat_volume).forEach {
-                bar -> bar.visibility = View.INVISIBLE
+            arrayOf(rain_volume, storm_volume, water_volume, fire_volume, wind_volume, night_volume, cat_volume).forEach { bar ->
+                bar.visibility = View.INVISIBLE
             }
         }
     }
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
         progressBar.visibility = if (progressBar.visibility == View.VISIBLE) View.INVISIBLE else View.VISIBLE
     }
 
-    inner class VolumeChangeListener(val sound: PlayerService.Sound): SeekBar.OnSeekBarChangeListener {
+    inner class VolumeChangeListener(private val sound: PlayerService.Sound) : SeekBar.OnSeekBarChangeListener {
         override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
             playerService?.setVolume(sound, (progress + 1) / 20f)
         }
