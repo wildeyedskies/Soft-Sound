@@ -203,6 +203,32 @@
 
     </GridLayout>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/start_timer"
+        android:visibility="invisible"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="bottom|center"
+        android:padding="24dp"
+        android:text="@string/start_timer" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancel_timer"
+        android:visibility="invisible"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="bottom|center"
+        android:padding="24dp"
+        android:text="@string/cancel_timer" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
