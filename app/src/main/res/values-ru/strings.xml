@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Soft Sound</string>
+    <string name="notification_message">Soft Sound работает…</string>
+
+    <string name="rain">Дождь</string>
+    <string name="storm">Буря</string>
+    <string name="water">Вода</string>
+    <string name="fire">Огонь</string>
+    <string name="wind">Ветер</string>
+    <string name="forest">Лес</string>
+    <string name="night">Ночные звуки</string>
+    <string name="cat">Кошачье мурлыканье</string>
+</resources>
