@@ -10,4 +10,7 @@
     <string name="forest">Forest</string>
     <string name="night">Night Sounds</string>
     <string name="cat">Cat Purr</string>
+
+    <string name="start_timer">Start timer</string>
+    <string name="cancel_timer">Cancel timer</string>
 </resources>
