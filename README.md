@@ -1,3 +1,7 @@
+# Moved
+
+This repository is now available at https://codeberg.org/boxedtoast/Soft-Sound
+
 # Soft Sound
 
 Play relaxing sounds to help you sleep, concentrate or stay calm. Soft Sound was made in a single day!
